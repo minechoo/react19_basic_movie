@@ -1,1 +1,10 @@
 @import "tailwindcss";
+/*
+  tailwindCSS의 수치 계산법
+  - 접두사-수치 : 형태로 구성되는 경우가 많음
+  - 1= 4px
+  - m-4 : margin: 16px;
+  - m-[31px], m-[40%], m-[10vw]
+  - text-red-100~900 (100단위로 숫자가 커질수록 명도가 낮아짐:어두워짐)
+  - xs, sm, base, lg, xl, 2xl, 4xl, 5xl
+*/
