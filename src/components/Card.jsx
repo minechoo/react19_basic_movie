@@ -8,7 +8,7 @@ export default function Card({ data }) {
         />
       </a>
 
-      <h2 className="mt-4 text-2xl">
+      <h2 className="mt-4 text-3xl font-dongle">
         <a href={"/" + data.id}>{data.title}</a>
       </h2>
     </article>

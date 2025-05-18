@@ -1,4 +1,12 @@
 @import "tailwindcss";
+
+/* 웹 폰트 전용의 유틸리티 클래스 사용을 위한 변수 설정 */
+@theme {
+  --font-noto: "Noto Sans KR", sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-dongle: "Dongle", sans-serif;
+}
+
 /*
   tailwindCSS의 수치 계산법
   - 접두사-수치 : 형태로 구성되는 경우가 많음
