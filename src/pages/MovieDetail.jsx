@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInfo from "../components/MovieInfo";
 import BgDetail from "../components/BgDetail";
+import Modal from "../components/Modal";
 
 export default function MovieDetail() {
   const { id } = useParams();
 
   const [Detail, setDetail] = useState(null);
   const [Trailer, setTrailer] = useState(null);
+  const [Open, setOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +48,15 @@ export default function MovieDetail() {
       {Detail && (
         <>
           <BgDetail Detail={Detail} />
-          <MovieInfo Detail={Detail} Trailer={Trailer} />
+          <MovieInfo
+            Detail={Detail}
+            Trailer={Trailer}
+            setOpen={() => setOpen(true)}
+          />
+
+          <Modal open={Open} onClose={() => setOpen(false)}>
+            <h2>영화 예고편</h2>
+          </Modal>
         </>
       )}
     </section>

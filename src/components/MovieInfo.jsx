@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function MovieInfo({ Detail, Trailer }) {
+export default function MovieInfo({ Detail, Trailer, setOpen }) {
   const navigate = useNavigate();
   return (
     <div className="relative w-9/12 h-full pr-20 theme-text flex flex-wrap content-between max-xl:w-full max-xl:pr-0">
@@ -32,7 +32,13 @@ export default function MovieInfo({ Detail, Trailer }) {
         </div>
 
         {/* 영화 트레일러 호출 버튼 */}
-        <nav>{Trailer && <button className="btn">WATCH TRAILER</button>}</nav>
+        <nav>
+          {Trailer && (
+            <button className="btn" onClick={setOpen}>
+              WATCH TRAILER
+            </button>
+          )}
+        </nav>
       </article>
 
       {/* 영화 포스터 및 줄거리 소개 영역 */}
