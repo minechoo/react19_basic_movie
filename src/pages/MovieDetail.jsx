@@ -1,22 +1,36 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import MovieInfo from "../components/MovieInfo";
 
 export default function MovieDetail() {
   const { id } = useParams();
 
   const [Detail, setDetail] = useState(null);
+  const [Trailer, setTrailer] = useState(null);
+  console.log(Trailer);
 
   useEffect(() => {
     const fetchData = async () => {
       const BASE_URL = "https://api.themoviedb.org/3/movie";
       const API_KEY = "4cf85a609f260b43cf0278ad12483b46";
       const REQ_URL = `${BASE_URL}/${id}?api_key=${API_KEY}&language=ko-KR`;
+      const REQ_TRAILER = `${BASE_URL}/${id}/videos?api_key=${API_KEY}`;
 
       try {
-        const res = await fetch(REQ_URL);
-        const data = await res.json();
-        console.log(data);
-        setDetail(data);
+        const resDetail = await fetch(REQ_URL);
+        const dataDetail = await resDetail.json();
+        console.log(dataDetail);
+        setDetail(dataDetail);
+
+        const resTrailer = await fetch(REQ_TRAILER);
+        const dataTrailer = await resTrailer.json();
+
+        //영상 정보중 유튜브에서 제공하는 트레일러 영상만 찾음
+        const officialTrailer = dataTrailer.results.find(
+          (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+        );
+        console.log("official", officialTrailer);
+        setTrailer(officialTrailer);
       } catch (err) {
         console.error(err);
       } finally {
@@ -29,22 +43,7 @@ export default function MovieDetail() {
 
   return (
     <section>
-      {/* 영화 타이틀 */}
-      <h1>{Detail?.title}</h1>
-      <h2>{Detail?.original_title}</h2>
-
-      {/* 영화 기타 정보 */}
-      <div>
-        <ul>
-          {Detail?.genres.map((el) => (
-            <li key={el.id}>{el.name}</li>
-          ))}
-        </ul>
-
-        <span>{Detail?.release_date}</span>
-        <span>{Detail?.runtime}분</span>
-        <span>{Detail?.vote_average} / 10</span>
-      </div>
+      <MovieInfo Detail={Detail} Trailer={Trailer} />
     </section>
   );
 }
