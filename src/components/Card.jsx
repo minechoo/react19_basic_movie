@@ -4,7 +4,10 @@ export default function Card({ data }) {
   return (
     <article className="w-full">
       {/* 썸네일 */}
-      <Link to={"/" + data.id} className="block w-full h-[22vw] relative">
+      <Link
+        to={"/detail/" + data.id}
+        className="block w-full h-[22vw] relative"
+      >
         <img
           src={`https://image.tmdb.org/t/p/w200${data.poster_path}`}
           alt={data.title}
@@ -21,7 +24,7 @@ export default function Card({ data }) {
 
       {/* 제목 */}
       <h2 className="text-2xl font-dongle text-[oklch(var(--theme-text))] font-[500] mt-3">
-        <Link to={"/" + data.id}>{data.title}</Link>
+        <Link to={"/detail/" + data.id}>{data.title}</Link>
       </h2>
     </article>
   );
