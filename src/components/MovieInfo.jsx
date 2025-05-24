@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 export default function MovieInfo({ Detail, Trailer }) {
+  const navigate = useNavigate();
   return (
-    <div className="relative w-9/12 h-full pr-20 theme-text">
+    <div className="relative w-9/12 h-full pr-20 theme-text flex flex-wrap content-between max-xl:w-full max-xl:pr-0">
+      {/* 영화 상단 정보 영역 */}
       <article className="relative flex flex-wrap w-full gap-10">
         {/* 영화 타이틀 */}
         <h1 className="w-full text-[5vmax] font-hanna leading-none">
@@ -29,6 +33,25 @@ export default function MovieInfo({ Detail, Trailer }) {
 
         {/* 영화 트레일러 호출 버튼 */}
         <nav>{Trailer && <button className="btn">WATCH TRAILER</button>}</nav>
+      </article>
+
+      {/* 영화 포스터 및 줄거리 소개 영역 */}
+      <article className="flex gap-10 h-2/5 panel mt-10 max-xl:h-auto max-xl:mb-20 max-md:flex-wrap">
+        <img
+          src={`https://image.tmdb.org/t/p/w342${Detail.poster_path}`}
+          alt={Detail.title}
+          className="block object-contain w-1/4 h-full max-md:w-full max-md:h-auto"
+        />
+
+        <div className="text-justify">
+          {Detail.tagline && (
+            <h3 className="mb-4 text-4xl font-dongle">{Detail.tagline}</h3>
+          )}
+          <p className="w-full mb-10 text-sm opacity-60">{Detail.overview}</p>
+          <button onClick={() => navigate(-1)} className="btn">
+            Go Back
+          </button>
+        </div>
       </article>
     </div>
   );
