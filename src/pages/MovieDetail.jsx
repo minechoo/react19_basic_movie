@@ -42,7 +42,7 @@ export default function MovieDetail() {
   }, [id]);
 
   return (
-    <section>
+    <section className="w-full h-screen theme-bg relative px-[10vw] pt-[17vh] pb-[6vh] overflow-hidden">
       {Detail && (
         <>
           <BgDetail Detail={Detail} />
