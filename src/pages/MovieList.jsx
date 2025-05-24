@@ -30,7 +30,7 @@ export default function MovieList() {
   }, []);
 
   return (
-    <section className="w-full fixed h-screen top-0 right-0 px-[10vw] py-30 overflow-y-auto custom-scroll grid grid-cols-5 gap-10 justify-items-center">
+    <section className="w-full fixed h-screen top-0 right-0 px-[10vw] py-30 overflow-y-auto custom-scroll grid grid-cols-5 gap-10 justify-items-center bg-[oklch(0.5 0.5 180)] max-2xl:grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
       {Loading && <p>Loading...</p>}
 
       {MovieData.map((data) => {

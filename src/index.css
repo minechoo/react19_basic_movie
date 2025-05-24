@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/*
+  반응형 웹 구현을 위한 접두어 유틸리티 클래스
+  max-sm: 640
+  max-md: 768
+  max-lg: 1024
+  max-xl: 1280
+  max-2xl: 1536
+*/
+
 @theme {
   /* 구글 웹 폰트 변수 */
   --font-noto: "Noto Sans KR", sans-serif;
