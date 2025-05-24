@@ -55,7 +55,10 @@ export default function MovieDetail() {
           />
 
           <Modal open={Open} onClose={() => setOpen(false)}>
-            <h2>영화 예고편</h2>
+            <iframe
+              src={`https://www.youtube.com/embed/${Trailer?.key}`}
+              className="size-full object-cover"
+            />
           </Modal>
         </>
       )}
