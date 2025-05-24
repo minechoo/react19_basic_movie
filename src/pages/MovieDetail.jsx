@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieInfo from "../components/MovieInfo";
+import BgDetail from "../components/BgDetail";
 
 export default function MovieDetail() {
   const { id } = useParams();
 
   const [Detail, setDetail] = useState(null);
   const [Trailer, setTrailer] = useState(null);
-  console.log(Trailer);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +43,12 @@ export default function MovieDetail() {
 
   return (
     <section>
-      <MovieInfo Detail={Detail} Trailer={Trailer} />
+      {Detail && (
+        <>
+          <BgDetail Detail={Detail} />
+          <MovieInfo Detail={Detail} Trailer={Trailer} />
+        </>
+      )}
     </section>
   );
 }
