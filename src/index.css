@@ -24,12 +24,23 @@
 	--color-black: oklch(0.1 0 0);
 }
 
+/* 다크모드일때 덮어쓸 스타일 색상 변수 */
+[data-mode='dark'] {
+	--theme-bg: 0.45 0.01 260;
+	--theme-text: 1 0 0;
+	--point-color: 0.7 0.16 350;
+}
+
 /* 위의 변수를 활용한 배경, 텍스트 유틸리티 클래스 */
 @utility theme-bg {
 	background-color: oklch(var(--theme-bg));
+	transition-duration: 1s;
+	transition-property: background;
 }
 @utility theme-text {
 	color: oklch(var(--theme-text));
+	transition-duration: 1s;
+	transition-property: color;
 }
 @utility bar {
 	padding: 7px 22px;
@@ -44,6 +55,8 @@
 	box-shadow: 0px 1px 2px oklch(0 0 0 / 0.05);
 	font-size: 11px;
 	border-radius: 4px;
+	transition-druation: 1s;
+	transition-property: background, color;
 }
 @utility panel {
 	padding: 20px;
@@ -58,6 +71,8 @@
 	box-shadow: 0px 10px 15px oklch(0 0 0 / 0.1);
 	font-size: 14px;
 	border-radius: 8px;
+	transition-druation: 1s;
+	transition-property: background, color;
 }
 
 @utility btn {
@@ -72,6 +87,8 @@
 	cursor: pointer;
 	filter: brightness(1.2);
 	transition: all 1s;
+	transition-druation: 1s;
+	transition-property: all;
 
 	&:hover {
 		background-color: black;

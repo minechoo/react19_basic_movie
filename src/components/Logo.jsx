@@ -14,7 +14,7 @@ export default function Logo({ title, desc, className }) {
 				<Link to='/'>{title}</Link>
 			</h1>
 			{desc && (
-				<h2 className='text-xs font-semibold theme-theme tracking-wide indent-0.5 opacity-50 -translate-x-[2px]'>
+				<h2 className='text-xs font-semibold theme-text tracking-wide indent-0.5 opacity-50 -translate-x-[2px]'>
 					{desc}
 				</h2>
 			)}
