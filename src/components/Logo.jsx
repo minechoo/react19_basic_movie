@@ -4,9 +4,10 @@ import { twMerge } from 'tailwind-merge';
 export default function Logo({ title, desc, className }) {
 	return (
 		<>
+			{/* 다크모드시 적용될 스타일만 "dark:유틸리티클래스" 형식으로 지정 가능 */}
 			<h1
 				className={twMerge(
-					`font-orbitron text-2xl theme-text font-[800] tracking-tighter leading-none`,
+					`font-orbitron text-2xl text-black dark:text-white font-[800] tracking-tighter leading-none`,
 					className
 				)}
 			>

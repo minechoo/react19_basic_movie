@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /*
   반응형 웹 구현을 위한 접두어 유틸리티 클래스
