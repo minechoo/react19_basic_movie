@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /*
   반응형 웹 구현을 위한 접두어 유틸리티 클래스
@@ -10,90 +10,96 @@
 */
 
 @theme {
-  /* 구글 웹 폰트 변수 */
-  --font-noto: "Noto Sans KR", sans-serif;
-  --font-orbitron: "Orbitron", sans-serif;
-  --font-dongle: "Dongle", sans-serif;
-  --font-hanna: "Black Han Sans", sans-serif;
+	/* 구글 웹 폰트 변수 */
+	--font-noto: 'Noto Sans KR', sans-serif;
+	--font-orbitron: 'Orbitron', sans-serif;
+	--font-dongle: 'Dongle', sans-serif;
+	--font-hanna: 'Black Han Sans', sans-serif;
 
-  /* oklch 기반 컬러 코드 변수 */
-  --theme-bg: 0.9 0.01 260;
-  --theme-text: 0.1 0 0;
-  --point-color: 0.7 0.16 240;
-  --color-black: oklch(0.1 0 0);
+	/* oklch 기반 컬러 코드 변수 */
+	--theme-bg: 0.9 0.01 260;
+	--theme-text: 0.1 0 0;
+	--point-color: 0.7 0.16 240;
+	--color-black: oklch(0.1 0 0);
 }
 
 /* 위의 변수를 활용한 배경, 텍스트 유틸리티 클래스 */
 @utility theme-bg {
-  background-color: oklch(var(--theme-bg));
+	background-color: oklch(var(--theme-bg));
 }
 @utility theme-text {
-  color: oklch(var(--theme-text));
+	color: oklch(var(--theme-text));
 }
 @utility bar {
-  padding: 7px 22px;
-  color: oklch(var(--theme-text) / 0.8);
-  background-color: oklch(var(--theme-bg) / 0.2);
-  backdrop-filter: blur(12px);
-  border: 1px solid;
-  border-left-color: oklch(1 0 0 / 0.2);
-  border-top-color: oklch(1 0 0 / 0.3);
-  border-right-color: oklch(0 0 0 / 0.1);
-  border-bottom-color: oklch(0 0 0 / 0.1);
-  box-shadow: 0px 1px 2px oklch(0 0 0 / 0.05);
-  font-size: 11px;
-  border-radius: 4px;
+	padding: 7px 22px;
+	color: oklch(var(--theme-text) / 0.8);
+	background-color: oklch(var(--theme-bg) / 0.2);
+	backdrop-filter: blur(12px);
+	border: 1px solid;
+	border-left-color: oklch(1 0 0 / 0.2);
+	border-top-color: oklch(1 0 0 / 0.3);
+	border-right-color: oklch(0 0 0 / 0.1);
+	border-bottom-color: oklch(0 0 0 / 0.1);
+	box-shadow: 0px 1px 2px oklch(0 0 0 / 0.05);
+	font-size: 11px;
+	border-radius: 4px;
 }
 @utility panel {
-  padding: 20px;
-  color: oklch(var(--theme-text) / 0.8);
-  background-color: oklch(var(--theme-bg) / 0.2);
-  backdrop-filter: blur(12px);
-  border: 1px solid;
-  border-left-color: oklch(1 0 0 / 0.2);
-  border-top-color: oklch(1 0 0 / 0.3);
-  border-right-color: oklch(0 0 0 / 0.1);
-  border-bottom-color: oklch(0 0 0 / 0.1);
-  box-shadow: 0px 10px 15px oklch(0 0 0 / 0.1);
-  font-size: 14px;
-  border-radius: 8px;
+	padding: 20px;
+	color: oklch(var(--theme-text) / 0.8);
+	background-color: oklch(var(--theme-bg) / 0.2);
+	backdrop-filter: blur(12px);
+	border: 1px solid;
+	border-left-color: oklch(1 0 0 / 0.2);
+	border-top-color: oklch(1 0 0 / 0.3);
+	border-right-color: oklch(0 0 0 / 0.1);
+	border-bottom-color: oklch(0 0 0 / 0.1);
+	box-shadow: 0px 10px 15px oklch(0 0 0 / 0.1);
+	font-size: 14px;
+	border-radius: 8px;
 }
 
 @utility btn {
-  display: inline-block;
-  padding: 8px 24px;
-  border-radius: 4px;
-  color: white;
-  font-size: 12px;
-  background-color: oklch(var(--point-color));
-  box-shadow: 0px 10px 15px oklch(var(--point-color) / 0.4);
-  font-weight: 600;
-  cursor: pointer;
-  filter: brightness(1.2);
-  transition: all 1s;
+	display: inline-block;
+	padding: 8px 24px;
+	border-radius: 4px;
+	color: white;
+	font-size: 12px;
+	background-color: oklch(var(--point-color));
+	box-shadow: 0px 10px 15px oklch(var(--point-color) / 0.4);
+	font-weight: 600;
+	cursor: pointer;
+	filter: brightness(1.2);
+	transition: all 1s;
 
-  &:hover {
-    background-color: black;
-    box-shadow: 0px 10px 15px oklch(0 0 0 / 0.3);
-  }
+	&:hover {
+		background-color: black;
+		box-shadow: 0px 10px 15px oklch(0 0 0 / 0.3);
+	}
+}
+
+@utility pos-center {
+	top: 50%;
+	left: 50%;
+	transform: traslate(-50%, -50%);
 }
 
 /* 커스텀 스크롤 적용을 위한 유틸리티 클래스 */
 @utility custom-scroll {
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background-color: oklch(var(--point-color) / 0.8);
-  }
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		background-color: oklch(var(--point-color) / 0.8);
+	}
 }
 
 /* 기존 유틸리티 클래스 내용 덮어쓰기 (수정) */
 @utility text-xs {
-  font-size: 11px;
-  line-height: 1.2;
+	font-size: 11px;
+	line-height: 1.2;
 }
